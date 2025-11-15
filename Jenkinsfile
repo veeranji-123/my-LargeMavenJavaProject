@@ -4,7 +4,7 @@ pipeline {
     environment {
         SONARQUBE_URL          = 'http://sonarqube:9000'
         NEXUS_URL              = 'http://nexus:8081'
-        DOCKER_IMAGE           = "ashuz/sample-webapp" // CHANGE THIS
+        DOCKER_IMAGE           = "veeranji123/sample-webapp" // CHANGE THIS
         VERSION                = "${env.BUILD_NUMBER}"
     }
     
