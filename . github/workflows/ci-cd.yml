@@ -7,8 +7,8 @@ on:
   workflow_dispatch:
 
 env:
-  DOCKER_IMAGE: ashuz/java-webapp
-  NEXUS_URL: http://nexus:8081
+  DOCKER_IMAGE: veeranji123/java-webapp
+  NEXUS_URL: http://54.219.34.24:8081
 
 jobs:
   build-and-test:
