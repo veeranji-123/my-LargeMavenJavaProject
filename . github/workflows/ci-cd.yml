@@ -68,6 +68,9 @@ jobs:
           java-version: ${{ env.JAVA_VERSION }}
           cache: maven
 
+      - name: Compile classes for analysis
+        run: mvn -B -ntp clean package -DskipTests
+
       - name: SonarQube scan
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -76,7 +79,8 @@ jobs:
           mvn -B -ntp sonar:sonar \
             -Dsonar.projectKey=sample-webapp \
             -Dsonar.host.url=$SONAR_HOST_URL \
-            -Dsonar.login=$SONAR_TOKEN
+            -Dsonar.login=$SONAR_TOKEN \
+            -Dsonar.java.binaries=target/classes
 
   deploy-nexus:
     name: Deploy to Nexus
@@ -159,4 +163,3 @@ jobs:
 
       - name: Image digest
         run: echo "Docker image pushed with tags ${{ steps.version.outputs.version }}, ${{ steps.version.outputs.short_sha }} and latest"
- 
