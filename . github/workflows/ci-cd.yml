@@ -73,12 +73,10 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: |
-          mvn -B -ntp clean compile sonar:sonar \
-            -DskipTests \
+          mvn -B -ntp clean verify sonar:sonar \
             -Dsonar.projectKey=sample-webapp \
             -Dsonar.host.url=$SONAR_HOST_URL \
-            -Dsonar.login=$SONAR_TOKEN \
-            -Dsonar.java.binaries=target/classes
+            -Dsonar.login=$SONAR_TOKEN
 
   deploy-nexus:
     name: Deploy to Nexus
