@@ -76,7 +76,8 @@ jobs:
           mvn -B -ntp clean verify sonar:sonar \
             -Dsonar.projectKey=sample-webapp \
             -Dsonar.host.url=$SONAR_HOST_URL \
-            -Dsonar.login=$SONAR_TOKEN
+            -Dsonar.login=$SONAR_TOKEN \
+            -Dsonar.java.binaries=target/classes
 
   deploy-nexus:
     name: Deploy to Nexus
