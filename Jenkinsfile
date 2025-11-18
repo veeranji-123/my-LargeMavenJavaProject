@@ -2,8 +2,8 @@ pipeline {
     agent any
     
     environment {
-        SONARQUBE_URL          = 'http://18.216.149.39:9000'
-        NEXUS_URL              = 'http://18.216.149.39:8081'
+        SONARQUBE_URL          = 'http://sonarqube:9000'
+        NEXUS_URL              = 'http://nexus:8081'
         DOCKER_IMAGE           = "veeranji123/sample-webapp" // CHANGE THIS
         VERSION                = "${env.BUILD_NUMBER}"
     }
